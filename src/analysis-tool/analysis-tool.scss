@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700&display=swap');
+
+:root { --ink:#17201e; --muted:#78827f; --line:#dce3df; --paper:#f3f5f1; --card:#fbfcf9; --green:#16845f; --lime:#dff24a; --red:#c96155; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope',sans-serif; }
+button,input { font:inherit; }
+button { color:inherit; }
+.terminal-shell { min-height:100vh; display:grid; grid-template-columns:76px 1fr; background:radial-gradient(circle at 80% 0%,rgba(223,242,74,.1),transparent 24%),var(--paper); }
+.rail { position:sticky; top:0; height:100vh; border-right:1px solid var(--line); background:#e9ede8; display:flex; flex-direction:column; align-items:center; padding:24px 0; z-index:2; }
+.mark { font-family:'Syne'; font-size:19px; font-weight:700; letter-spacing:-1px; }
+.mark span { color:var(--green); }
+.rail nav { margin-top:75px; display:grid; gap:12px; }
+.rail-button { width:44px; height:44px; display:grid; place-items:center; border:0; background:transparent; border-radius:12px; cursor:pointer; }
+.rail-button:hover,.rail-button.active { background:var(--ink); color:white; transform:translateY(-1px); }
+.icon { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.rail-foot { margin-top:auto; width:32px; height:32px; display:grid; place-items:center; border:1px solid #bac3bf; border-radius:50%; font:500 12px 'DM Mono'; }
+main { min-width:0; }
+.topbar { min-height:91px; display:flex; justify-content:space-between; align-items:center; padding:17px 34px 14px; border-bottom:1px solid var(--line); }
+.eyebrow,.section-heading small,.ticket-title small,.chart-head small { font:500 10px 'DM Mono'; letter-spacing:.16em; color:var(--green); }
+h1,h2 { font-family:'Syne'; margin:0; letter-spacing:-.035em; }
+h1 { font-size:28px; margin-top:2px; }
+h2 { font-size:20px; }
+.top-actions { display:flex; align-items:center; gap:18px; }
+.connection { font:500 10px 'DM Mono'; letter-spacing:.09em; display:flex; align-items:center; gap:7px; }
+.connection i { width:7px; height:7px; background:#d0a428; border-radius:50%; }
+.connection.live i { background:var(--green); box-shadow:0 0 0 4px rgba(22,132,95,.12); }
+.connection.demo i { background:#c78343; }
+.account { border:1px solid var(--line); background:var(--card); border-radius:4px; padding:10px 12px; display:flex; align-items:center; gap:11px; font:500 9px 'DM Mono'; letter-spacing:.05em; }
+.account strong { font-size:12px; }
+.account .icon { width:14px; }
+.market-strip { display:grid; grid-template-columns:1.3fr .65fr .35fr; align-items:center; gap:25px; margin:22px 34px 0; padding:18px 20px; background:var(--ink); color:#f7faf6; border-radius:8px; box-shadow:0 15px 35px rgba(22,32,30,.12); }
+.market-name { display:flex; gap:14px; align-items:center; }
+.pulse-bars { width:38px; height:38px; display:grid; place-items:center; border-radius:50%; background:var(--lime); color:var(--ink); font-size:20px; }
+.market-strip small { display:block; color:#94a09c; font:400 9px 'DM Mono'; letter-spacing:.12em; margin-bottom:4px; }
+.market-name strong { font:600 15px 'Syne'; }
+.quote { display:flex; align-items:baseline; gap:14px; }
+.quote>strong { font:600 25px 'DM Mono'; }
+.quote span { font:500 11px 'DM Mono'; }
+.quote span small { display:inline; letter-spacing:0; }
+.positive { color:#7ad9b6; }.negative { color:#e69085; }
+.session { border-left:1px solid #394440; padding-left:20px; }.session strong { font:500 13px 'DM Mono'; }
+.workspace { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:22px; padding:22px 34px 40px; max-width:1500px; }
+.analysis-column { min-width:0; display:grid; gap:18px; }
+.strategy-picker,.chart-card,.probability-card,.ticket { border:1px solid var(--line); background:rgba(251,252,249,.87); border-radius:8px; }
+.strategy-picker,.probability-card { padding:18px 20px; }
+.section-heading,.ticket-title,.chart-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:15px; }
+.section-heading>span { font:400 10px 'DM Mono'; color:var(--muted); }
+.strategy-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.strategy { text-align:left; border:1px solid var(--line); background:#f7f9f5; padding:12px; border-radius:5px; display:flex; gap:11px; align-items:center; cursor:pointer; transition:transform .2s,border-color .2s,background .2s; }
+.strategy:hover { transform:translateY(-2px); border-color:#acb9b3; }
+.strategy>b { min-width:34px; height:34px; display:grid; place-items:center; border-radius:4px; background:#e7ece7; font:500 11px 'DM Mono'; }
+.strategy span { display:grid; gap:2px; }.strategy strong { font-size:11px; }.strategy small { font:400 9px 'DM Mono'; color:var(--muted); }
+.strategy.active { border-color:var(--green); background:#edf7f1; box-shadow:inset 3px 0 var(--green); }.strategy.active>b { background:var(--green); color:white; }
+.chart-card { overflow:hidden; }.chart-head { padding:18px 20px 0; }
+.chart-legend { color:var(--muted); font:400 10px 'DM Mono'; }.chart-legend i { display:inline-block; width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px; }
+.canvas-wrap { height:225px; position:relative; margin-top:2px; }.canvas-wrap canvas { width:100%;height:100%;display:block; }
+.price-pill { position:absolute; right:12px; top:14px; background:var(--ink); color:white; padding:6px 8px; font:500 10px 'DM Mono'; border-radius:3px; }
+.digit-tape { border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(10,1fr); }.digit-tape>div { padding:9px 4px 8px; text-align:center; border-right:1px solid var(--line); display:grid; gap:2px; }.digit-tape span { font:500 14px 'DM Mono'; }.digit-tape small { color:var(--muted); font:400 7px 'DM Mono'; }.digit-tape .latest { background:var(--lime); }
+.prob-bars { display:grid; grid-template-columns:1fr 1fr; gap:25px; }.prob-bars>div>div { display:flex;justify-content:space-between;align-items:center;margin-bottom:7px; }.prob-bars strong { font:600 10px 'DM Mono'; }.prob-bars em { font:500 15px 'DM Mono';font-style:normal; }.prob-bars>div>span { display:block;height:6px;background:#e4e9e5;border-radius:10px;overflow:hidden; }.prob-bars i { display:block;height:100%;background:var(--green);border-radius:10px;transition:width .4s; }.prob-bars i.dark { background:var(--ink); }.probability-card>p { margin:12px 0 0;color:var(--muted);font-size:10px; }
+.ticket { padding:20px; align-self:start; position:sticky; top:16px; }
+.paper-badge { color:#815f14;background:#f3eabc;padding:5px 7px;border-radius:3px;font:500 8px 'DM Mono';letter-spacing:.08em; }
+.ticket label { display:block; font:600 10px 'DM Mono'; margin:17px 0; }
+.stepper,.money-input { margin-top:7px; border:1px solid var(--line); border-radius:4px; height:42px; display:flex;align-items:center;justify-content:space-between;background:#f7f9f6; }
+.stepper button { border:0;background:transparent;width:42px;height:100%;font-size:18px;cursor:pointer; }.stepper strong { font-size:12px; }
+.money-input span { padding:0 11px;color:var(--muted);font-size:9px; }.money-input input { border:0;background:transparent;text-align:right;width:150px;padding:0 12px;font:500 14px 'DM Mono';outline:0; }
+.digits { display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:8px; }.digits button { border:1px solid var(--line);background:#f7f9f6;height:29px;border-radius:3px;font:500 10px 'DM Mono';cursor:pointer; }.digits button.active { background:var(--ink);color:white; }
+.side-choice { display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:20px 0 12px; }.side-choice button { border:1px solid #add2c3;background:#edf7f2;text-align:left;padding:12px;border-radius:5px;cursor:pointer; }.side-choice button.dark { border-color:#ced4d1;background:#eff1ee; }.side-choice button.selected { outline:2px solid var(--green); }.side-choice button.selected.dark { outline-color:var(--ink); }.side-choice small { display:block;font:400 8px 'DM Mono';color:var(--muted);margin-bottom:4px; }.side-choice strong { font:600 11px 'DM Mono'; }
+.hedge-box { border-left:3px solid var(--lime);background:#f1f3e4;padding:11px 12px;margin:14px 0; }.hedge-box span { display:block;font:500 8px 'DM Mono';color:#767c50;letter-spacing:.1em; }.hedge-box strong { font-size:11px; }.hedge-box p { font-size:9px;color:var(--muted);margin:5px 0 0;line-height:1.45; }
+.trade-button { width:100%;height:47px;border:0;border-radius:4px;background:var(--ink);color:white;padding:0 16px;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:12px;cursor:pointer;transition:transform .2s,background .2s; }.trade-button:hover { transform:translateY(-2px);background:var(--green); }.trade-button span { font-size:19px; }
+.risk-note { text-align:center;color:var(--muted);font-size:9px;line-height:1.4; }
+.paper-log { border-top:1px solid var(--line);margin-top:16px;padding-top:14px; }.paper-log h3 { margin:0 0 8px;font:600 10px 'DM Mono';display:flex;justify-content:space-between; }.paper-log>div { display:flex;justify-content:space-between;padding:7px 0;border-top:1px dashed var(--line);font:500 9px 'DM Mono'; }.paper-log>p { color:var(--muted);font-size:9px;line-height:1.5;margin:0; }
+@media(max-width:1000px){.workspace{grid-template-columns:1fr}.ticket{position:static}.strategy-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.terminal-shell{grid-template-columns:1fr}.rail{height:58px;width:100%;position:fixed;bottom:0;top:auto;flex-direction:row;padding:7px 14px;justify-content:space-between}.rail nav{margin:0;display:flex}.rail-foot{margin:0}.topbar{padding:14px 18px}.top-actions .connection{display:none}.account{padding:8px}.account{font-size:0}.market-strip{margin:12px 14px 0;grid-template-columns:1fr 1fr}.session{display:none}.workspace{padding:14px 14px 84px}.strategy-grid{grid-template-columns:1fr 1fr}.strategy{padding:9px}.strategy-grid .strategy b{display:none}.digit-tape>div:nth-child(-n+5){display:none}.digit-tape{grid-template-columns:repeat(5,1fr)}.prob-bars{grid-template-columns:1fr}.quote{display:block}.quote>strong{font-size:18px}.market-name strong{font-size:12px}.pulse-bars{display:none}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
